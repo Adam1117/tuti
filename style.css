@@ -1,0 +1,402 @@
+/* Eltávolítjuk a margót és paddinget a body és html elemeknél */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%; /* Biztosítjuk, hogy a háttér lefedje az egész oldalt */
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li.dropdown {
+            position: relative;
+        }
+
+        nav ul li.dropdown .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        nav ul li.dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav ul li.dropdown .dropdown-content li {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav ul li.dropdown .dropdown-content li a {
+            color: black;
+        }
+
+        nav ul li.dropdown .dropdown-content li a:hover {
+            background-color: #ddd;
+        }
+
+        .hero-section {
+            background-size: cover;
+            background-position: center;
+            height: 320px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            width: 280px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .product-card p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            background-color: #f09c49;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .product-card button:hover {
+            background-color: #e68a35;
+        }
+
+     .modal {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1050;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Hozzáadjuk a görgetést */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%; /* Mobil barát szélesség */
+    max-width: 600px;
+    padding: 20px;
+    margin: 20px auto; /* Üres hely a tetején és az alján is */
+    overflow-y: auto; /* Hozzáadjuk a tartalom görgetését */
+    max-height: 90vh; /* Maximális magasság 90%-a a képernyőnek */
+}
+
+/* Animáció a modal megjelenéséhez */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close {
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #000;
+}
+
+
+/* Animáció a modal felbukkanásához */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Kártyák stílusa */
+.product-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.product-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: calc(25% - 20px); /* Négy kártya egymás mellett */
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.top-products {
+    text-align: center;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Távolság a kártyák között */
+}
+
+.product-card {
+    width: 250px; /* A kártyák szélessége */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-card a:hover {
+    background-color: #0056b3;
+}
+
+.product-card button {
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.product-card button:hover {
+    background-color: #e68a00;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%; /* A teljes oldal magassága */
+    background-image: url('dream-pulse-header.jpg'); /* A kép elérési útvonala */
+    background-size: cover; /* A kép arányos kitöltése */
+    background-repeat: no-repeat; /* A kép ne ismétlődjön */
+    background-attachment: fixed; /* A háttér fixen maradjon görgetés közben */
+    background-position: center; /* A kép középre igazítása */
+}
+.order-form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.order-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.order-form .form-group {
+    margin-bottom: 15px;
+}
+
+.order-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.order-form input, .order-form select, .order-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.order-form input:focus, .order-form select:focus, .order-form textarea:focus {
+    border-color: #ff9900;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 153, 0, 0.5);
+}
+
+.order-form .form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.order-form .form-row .form-group {
+    flex: 1;
+}
+
+.order-form .btn-submit {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.order-form .btn-submit:hover {
+    background-color: #e68a00;
+}
+
+button {
+    background-color: #ff9900; /* Narancssárga háttér */
+    color: white; /* Fehér szöveg */
+    border: none; /* Nincs keret */
+    padding: 10px 20px; /* Belső margók */
+    border-radius: 5px; /* Lekerekített sarkok */
+    font-size: 16px; /* Betűméret */
+    cursor: pointer; /* Mutató kéz ikon */
+    transition: background-color 0.3s ease; /* Lágy színváltás */
+}
+
+button:hover {
+    background-color: #e68a00; /* Sötétebb narancssárga, amikor az egér fölötte van */
+}
+
+button:active {
+    background-color: #cc7a00; /* Még sötétebb narancssárga, amikor lenyomva van */
+    transform: scale(0.98); /* Enyhe zsugorítás hatás */
+}
+
+button:disabled {
+    background-color: #ddd; /* Szürkés háttér a letiltott gomboknál */
+    cursor: not-allowed; /* Mutató kéz helyett letiltott ikon */
+    color: #888; /* Halvány szürke szöveg */
+}
+.cart-button {
+    background-color: #28a745; /* Zöld háttér */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: #218838; /* Sötétebb zöld, amikor az egér fölötte van */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Piros háttér */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333; /* Sötétebb piros, amikor az egér fölötte van */
+}
+
+.order-button {
+    background-color: #007bff; /* Kék háttér */
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+    background-color: #0056b3; /* Sötétebb kék, amikor az egér fölötte van */
+}
+
+
